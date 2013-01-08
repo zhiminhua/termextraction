@@ -18,5 +18,5 @@ public interface Algorithm {
 	 * 
 	 * @return
 	 */
-	Term[] execute (AbstractFeatureWrapper store);
+	Term[] execute (AbstractFeatureWrapper store) throws Exception;
 }
