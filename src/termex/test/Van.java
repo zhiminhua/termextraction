@@ -2,6 +2,8 @@ package termex.test;
 
 import java.util.*;
 
+import termex.core.algorithm.TermExAlgorithm.TermExAlgorithm;
+import termex.core.algorithm.TermExAlgorithm.TermExFeatureWrapper;
 import termex.core.extractor.BasicExtractor;
 import termex.core.extractor.NounPhraseExtractor_openNLP;
 import termex.core.extractor.WordExtractor;
@@ -24,7 +26,7 @@ public class Van {
 
 	public static void main(String[] args) {
 		if (args.length < 3) {
-			System.out.println("Usage: java van [corpus_path] [reference_corpus_path] [output_folder]");
+			System.out.println("Usage: java van [corpus_path] [reference_file_path] [output_folder]");
 		} else {
 			try {
 				System.out.println("Begin at: " + new Date());
@@ -170,7 +172,9 @@ public class Van {
 				//############################# Test END ###############################
 				
 				// Algorithm Test
-//				... ...
+				AlgorithmTester tester = new AlgorithmTester();
+				tester.registerAlgorithm(new TermExAlgorithm(), new TermExFeatureWrapper(termDocFreq,wordFreq,bncRef));
+				tester.execute(termDocIndex, args[2]);
 				
 				System.out.println("End at: " + new Date());
 			} catch (Exception e) {

@@ -5,12 +5,19 @@ import java.util.Set;
 import termex.core.algorithm.AbstractFeatureWrapper;
 import termex.core.feature.FeatureCorpusTermFrequency;
 import termex.core.feature.FeatureDocumentTermFrequency;
+import termex.core.feature.FeatureRefCorpusTermFrequency;
 
 public class TermExFeatureWrapper extends AbstractFeatureWrapper {
 
 	private FeatureDocumentTermFrequency termFreq;
 	private FeatureCorpusTermFrequency wordFreq;
 	
+	public TermExFeatureWrapper(FeatureDocumentTermFrequency termDocFreq,
+			FeatureCorpusTermFrequency wordFreq2,
+			FeatureRefCorpusTermFrequency bncRef) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public Set<String> getTerms() {
 		return termFreq.getGlobalIndex().getTermsCanonical();
