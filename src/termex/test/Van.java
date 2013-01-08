@@ -7,8 +7,10 @@ import termex.core.extractor.NounPhraseExtractor_openNLP;
 import termex.core.extractor.WordExtractor;
 import termex.core.feature.FeatureBuilderCorpusTermFrequency;
 import termex.core.feature.FeatureBuilderDocumentTermFrequency;
+import termex.core.feature.FeatureBuilderRefCorpusTermFrequency;
 import termex.core.feature.FeatureCorpusTermFrequency;
 import termex.core.feature.FeatureDocumentTermFrequency;
+import termex.core.feature.FeatureRefCorpusTermFrequency;
 import termex.core.feature.index.GlobalIndexBuilderImpl;
 import termex.core.feature.index.GlobalIndexImpl;
 import termex.model.corpus.CorpusImpl;
@@ -137,8 +139,9 @@ public class Van {
 						new FeatureBuilderDocumentTermFrequency(npcounter, wordcounter, lemmatizer).build(termDocIndex);
 				FeatureCorpusTermFrequency wordFreq = 
 						new FeatureBuilderCorpusTermFrequency(npcounter, wordcounter, lemmatizer).build(wordDocIndex);
-//				... ...
-				
+				FeatureRefCorpusTermFrequency bncRef = 
+						new FeatureBuilderRefCorpusTermFrequency(args[1]).build(null);
+						
 				//############################# Test BIGEN ##############################
 				// For termDocFreq
 //				System.out.println("Total Word in Corpus : " + termDocFreq.getTotalCorpusTermFreq());
@@ -160,6 +163,10 @@ public class Van {
 //					String s1 = it1.next();
 //					System.out.println(s1 + " : " + wordFreq.getTermFreq(s1));
 //				}
+				
+				// For bncRef
+//				System.out.println("freq of 'the' is " + bncRef.getTermFreq("the"));
+//				System.out.println("normalized freq of 'the' is " + bncRef.getNormalizedTermFreq("the"));
 				//############################# Test END ###############################
 				
 				// Algorithm Test
