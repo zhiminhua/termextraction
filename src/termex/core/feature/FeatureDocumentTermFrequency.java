@@ -1,7 +1,9 @@
 package termex.core.feature;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import termex.core.feature.index.GlobalIndex;
@@ -82,5 +84,76 @@ public class FeatureDocumentTermFrequency extends AbstractFeature {
      */
     public Map<Integer, Integer> getDocFreqMap(int t) {
     		return termInDocFreqMap.get(t);
+    }
+    
+    /**
+     * @param t
+     * @return the IDs of documents in which term t are found
+     */
+    public int[] getTermAppear(String t) {
+        int termId = index.getTermCanonical(t);
+        if (termId == -1) {
+            return new int[0];
+        } else {
+            Set<Integer> keys = termInDocFreqMap.get(termId).keySet();
+            int[] rs = new int[keys.size()];
+            int c = 0;
+            for (Integer k : keys) {
+                rs[c] = k;
+                c++;
+            }
+            return rs;
+        }
+    }
+
+    /**
+     * @param term
+     * @return number of occurrences of a term in all documents
+     */
+    public int getSumTermFreqInDocs(String term) {
+        int termId = index.getTermCanonical(term);
+        if (termId == -1) {
+            return 0;
+        } else {
+            return getSumTermFreqInDocs(termId);
+        }
+    }
+
+    /**
+     * @param term
+     * @return number of occurrences of a term in all documents
+     */
+    public int getSumTermFreqInDocs(int term) {
+        Set<Integer> docs = index.getDocIdsContainingTermCanonical(term);
+        int sum = 0;
+        Iterator<Integer> it = docs.iterator();
+        while (it.hasNext())
+            sum += getTermFreqInDoc(term, it.next());
+        return sum;
+    }
+
+    /**
+     * @param t
+     * @param d
+     * @return number of occurrences of a term identified by id t in a document identified by id d
+     */
+    public int getTermFreqInDoc(int t, int d) {
+        Map<Integer, Integer> freqInDocs = termInDocFreqMap.get(t);
+        if (freqInDocs == null) return 0;
+        return freqInDocs.get(d);
+    }
+
+    /**
+     * @param t
+     * @param d
+     * @return number of occurrences of a term t in a document identified by id d
+     */
+    public int getTermFreqInDoc(String t, int d) {
+        int termId = index.getTermCanonical(t);
+        if (termId == -1) {
+            return 0;
+        } else {
+            return getTermFreqInDoc(termId, d);
+        }
     }
 }

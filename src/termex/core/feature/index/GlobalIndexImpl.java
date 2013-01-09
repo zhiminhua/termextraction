@@ -200,5 +200,14 @@ public class GlobalIndexImpl extends GlobalIndex {
 		Set<Integer> res = this.doc2Terms.get(d);
 		return res == null ? new HashSet<Integer>() : res;
 	}
+	
+    public Set<Integer> getDocIdsContainingTermCanonical(String t) {
+        return getDocIdsContainingTermCanonical(indexTermCanonical(t));
+    }
+
+    public Set<Integer> getDocIdsContainingTermCanonical(int id) {
+        Set<Integer> res = term2Docs.get(id);
+        return res == null ? new HashSet<Integer>() : res;
+    }
 
 }

@@ -117,6 +117,18 @@ public abstract class GlobalIndex {
 	 */
 	protected abstract void indexDocWithTermsCanonical (Document d, Set<String> terms);
 	
+	/**
+	 * @param t the candidate term's canonical form in question
+	 * @return the document ids of which documents contain the candidate term t
+	 */
+	public abstract Set<Integer> getDocIdsContainingTermCanonical(String t);
+	
+	/**
+	 * @param id the candidate term's canonical form in questoin
+	 * @return the document ids of which documents contain the candidate term t
+	 */
+	public abstract Set<Integer> getDocIdsContainingTermCanonical(int id);
+	
 	//################### Term -- Doc ######################
 	
 	/**

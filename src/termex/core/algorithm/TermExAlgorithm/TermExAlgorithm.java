@@ -77,7 +77,7 @@ public class TermExAlgorithm implements Algorithm {
 		
 		Term[] all = result.toArray(new Term[0]);
 		Arrays.sort(all);
-		return null;
+		return all;
 	}
 
 }
