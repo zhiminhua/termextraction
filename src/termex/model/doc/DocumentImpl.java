@@ -5,6 +5,12 @@ import java.net.URL;
 
 import uk.ac.shef.wit.commons.UtilFiles;
 
+/**
+ * Define Document Implement
+ * 
+ * @author jyfeather88
+ *
+ */
 public class DocumentImpl implements Document {
 
 	protected URL url;

@@ -1,0 +1,8 @@
+good evening good night |Good Evening Good Night 			1.366167658054957
+eleven sheep |eleven sheeps 			1.0389290837362326
+hello world |hello world 			1.033577506360458
+happy term |Happy Terms 			0.8094759048103675
+good afternoon |Good Afternoon 			0.7318054493503633
+good morning |Good Morning 			0.7304873167868774
+happy |happy 			0.5390356875151419
+term |Term 			0.5390056490672313

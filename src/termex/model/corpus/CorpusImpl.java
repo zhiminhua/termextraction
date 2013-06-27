@@ -9,6 +9,12 @@ import java.util.Set;
 import termex.model.doc.Document;
 import termex.model.doc.DocumentImpl;
 
+/**
+ * Define Corpus Implement
+ * 
+ * @author jyfeather88
+ *
+ */
 public class CorpusImpl implements Corpus {
 
 	private Set<Document> docs;

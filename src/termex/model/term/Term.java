@@ -1,5 +1,11 @@
 package termex.model.term;
 
+/**
+ * Define Term Meaning
+ * 
+ * @author jyfeather88
+ *
+ */
 public class Term implements Comparable<Term> {
 	
 	private String singular;

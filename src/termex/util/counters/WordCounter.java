@@ -8,6 +8,12 @@ import termex.model.corpus.CorpusImpl;
 import termex.model.doc.Document;
 import termex.model.doc.DocumentImpl;
 
+/**
+ * Counter the number of words in a file
+ * 
+ * @author jyfeather88
+ *
+ */
 public class WordCounter {
 
 	public WordCounter() {

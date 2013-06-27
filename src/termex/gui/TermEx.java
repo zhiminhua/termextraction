@@ -7,6 +7,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+/**
+ * GUI Framework, it is not usable temporarily
+ * 
+ * @author jyfeather88
+ *
+ */
 public class TermEx {
 
 	JFrame jframe = new JFrame();
